@@ -16,7 +16,7 @@ function App() {
 
     const getUserData = (accessToken) => {
         axios
-            .get(`http://localhost:4000/api/profile`, {
+            .get(process.env.REACT_APP_BE_HOST+'/api/profile', {
                 headers: {
                     "Authorization": `Bearer ${accessToken}`
                 }

@@ -18,7 +18,7 @@ function Login(props) {
 
     const doLogin = () => {
         axios
-            .post('http://localhost:4000/api/auth/login', {
+            .post(process.env.REACT_APP_BE_HOST+'/api/auth/login', {
                 username: username.value,
                 password: password.value
             })
@@ -39,7 +39,7 @@ function Login(props) {
 
     const getUserData = (accessToken) => {
         axios
-            .get(`http://localhost:4000/api/profile`, {
+            .get(process.env.REACT_APP_BE_HOST+'/api/profile', {
                 headers: {
                     "Authorization": `Bearer ${accessToken}`
                 }

@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: webfe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webfe
+  template:
+    metadata:
+      labels:
+        app: webfe
+    spec:
+      containers:
+        - name: webfe
+          image: docker.io/fazarrahman/webfe
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
+---
+    kind: Service
+    apiVersion: v1
+    metadata:
+      name: webfe
+    spec:
+      type: NodePort
+      ports:
+        - port: 3000
+          targetPort: 3000
+          protocol: TCP
+          nodePort: 31000
+      selector:
+        app: webfe

@@ -44,7 +44,7 @@ function SignUp(props) {
             return
         }
         axios
-            .post('http://localhost:4000/api/auth/signup', {
+            .post(process.env.REACT_APP_BE_HOST+'/api/auth/signup', {
                 email: email.value,
                 username: username.value,
                 firstname: firstname.value,
