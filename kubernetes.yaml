@@ -14,8 +14,11 @@ spec:
     spec:
       containers:
         - name: webfe
-          image: docker.io/fazarrahman/webfe
+          image: docker.io/fazarrahman/webfe:latest
           imagePullPolicy: Always
+          env:
+            - name: REACT_APP_BE_HOST
+              value: "http://192.168.64.3:32016"
           ports:
             - containerPort: 3000
       restartPolicy: Always
