@@ -18,7 +18,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: REACT_APP_BE_HOST
-              value: "http://192.168.64.3:32016"
+              value: "https://blogbe-svc-fazarrahman.cloud.okteto.net"
           ports:
             - containerPort: 3000
       restartPolicy: Always
